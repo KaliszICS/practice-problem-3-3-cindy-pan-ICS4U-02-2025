@@ -22,14 +22,16 @@ public class PracticeProblem {
 
 
 	public static ArrayList<String> permsUnique(String str){
-		HashMap<String,String> temp= new HashMap<String, String>();
+		HashMap<String,Integer> temp= new HashMap<String, Integer>();
 		ArrayList<String> out = new ArrayList<String>();
-		ArrayList<String> tempAgain = new ArrayList<String>();
+		ArrayList<String> print = new ArrayList<String>();
 		permHelper("", str, out);
 		for (int i =0; i< out.size() ; i++){
-			temp.put(out.get(i), out.get(i));
-			tempAgain.add(temp.get(out.get(i)));
+			temp.put(out.get(i),(i));
 		}
-		return tempAgain;
+		for (int o : temp.values()){
+			print.add(out.get(o));
+		}
+		return print;
 	}
 }
